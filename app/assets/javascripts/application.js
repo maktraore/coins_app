@@ -14,11 +14,26 @@
 // = require jquery 
 //= require dataTables/jquery.dataTables
 //= require bootstrap-sprockets
-//= require turbolinks
+//= require jquery.turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load', function(){
-  $("table[role='datatable']").each(function(){
-    (this).DataTable({});
-  });
-});
+$(document).ready(function() {
+    var table = $('#receivers').DataTable({
+      dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
+      "<'row'<'col-sm-12'tr>>" +
+      "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+    });
+} );
+
+  // $(document).ready(function() {
+  //   $('#admins').dataTable
+  //   sPaginationType: "bootstrap"
+  //   bJQueryUI: true
+
+  // } );
+
+  //  $(document).ready(function() {
+  //   $('#receivers').dataTable();
+  //   sPaginationType: "bootstrap"
+  //   bJQueryUI: true
+  // } );

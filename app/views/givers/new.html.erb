@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <h4>Please fill out the receiver's information</h4>
+      <h4>Please fill out the Recipient's information</h4>
       <div class="well">
         <%= form_tag "/givers", method: :post, class: "form-horizontal"  do %>
           <div class="form-group">
@@ -18,25 +18,31 @@
             </div>
             </div>
             <div class="form-group">
-            <label>Receiver's First Name:</label>
+            <label>Recipient's First Name:</label>
             <div class="col-xs-12">
               <input class="form-input" type="text" name = "first_name">
             </div>
           </div> 
           <div class="form-group">
-            <label>Receiver's Last Name:</label>
+            <label>Recipient's Last Name:</label>
             <div class="col-xs-12">
               <input class="form-input" type="text" name = "last_name">
             </div>
           </div>
           <div class="form-group">
-            <label>Receiver's Email:</label>
+            <label>Recipient's Email:</label>
             <div class="col-xs-12">
               <input class="form-input" type="email" name = "email">
             </div>
           </div>
           <div class="form-group">
-            <label>Receiver's Department:</label>
+            <label>Coin's Number:</label>
+            <div class="col-xs-12">
+              <input class="form-input" type="email" name = "email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Recipient's Department:</label>
             <div class="col-xs-12">
               <input class="form-input" type="text" name = "department">
             </div>

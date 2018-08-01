@@ -1,1 +1,69 @@
-index.html.erb
+<h1 class="middle_text">Admins
+  <table role='datatable'>
+    <thead>
+      <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <% User.all.each do |user|%>
+          <% if !user.super_admin %>
+          <th>Delete user</th>
+          <% end %>
+          <% end %>
+      </tr>
+    </thead>
+    <tbody>
+       
+          <% User.all.each do |user| %>
+     <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email%></td>
+          <% if !user.super_admin %>
+          <td><%= link_to 'delete', "/user/#{user.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"}  %></td>
+          
+          <% end %>
+     </tr> 
+          <% end %>
+
+    </tbody>
+  
+</table>
+
+</h1>
+
+<h1>Receivers</h1>
+<table>
+    <thead>
+      <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Cause</th>
+          <th>Coin's number</th>
+          <th>Location</th>
+          <th>Receiver's name</th>
+          <th>Date</th>
+          <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+       
+          <% @receivers.each do |receiver| %>
+     <tr>
+          <td><%= receiver.first_name %></td>
+          <td><%= receiver.last_name %></td>
+          <td><%= receiver.email%></td>
+          <td><%= receiver.race%></td>
+          <td><%= receiver.coins%></td>
+          <td><%= receiver.location%></td>
+          <td><%= "#{receiver.first_name} #{receiver.last_name}"%></td>
+          <td><%= receiver.created_at.strftime("%F %T") %></td>
+          <td><%= link_to 'delete', "givers/#{receiver.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %></td>
+     </tr> 
+          <% end %>
+
+    </tbody>
+  
+</table>
+

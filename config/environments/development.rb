@@ -50,19 +50,30 @@ Rails.application.configure do
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'localhost:3000'}
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-# SMTP settings for gmail
-config.action_mailer.smtp_settings = {
- :address              => "smtp.gmail.com",
- :port                 => 587,
- domain:  "gmail.com",
- :user_name            => ENV['gmail_username'],
- :password             => ENV['gmail_password'],
- :authentication       => "plain",
-:enable_starttls_auto => true
-}
+#   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+#   config.action_mailer.delivery_method = :smtp
+#   config.action_mailer.default_url_options = { :host => 'localhost:3000'}
+#   config.action_mailer.perform_deliveries = true
+#   config.action_mailer.raise_delivery_errors = true
+# # SMTP settings for gmail
+# config.action_mailer.smtp_settings = {
+#  :address              => "smtp.gmail.com",
+#  :port                 => 587,
+#  domain:  "gmail.com",
+#  :user_name            => ENV['gmail_username'],
+#  :password             => ENV['gmail_password'],
+#  :authentication       => "plain",
+#  :enable_starttls_auto => true,
+#  :openssl_verify_mode  => 'none'
+# }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  ActionMailer::Base.smtp_settings = {
+                    :address        => "smtp.gmail.com",
+                    domain:  "gmail.com",
+                    :port           => 587,
+                    :authentication => :plain,
+                    :user_name      => ENV['gmail_username'],
+                    :password       => ENV['gmail_password'],
+                    :openssl_verify_mode  => 'none'
+  } 
 end

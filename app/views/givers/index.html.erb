@@ -1,4 +1,4 @@
-<div class= "a container-fluid">
+<div class= "container-fluid">
 <h1 class="middle_text ">Admins </h1>
   <table class='display' id='admins'>
     <thead>
@@ -6,10 +6,8 @@
           <th>First name</th>
           <th>Last name</th>
           <th>Email</th>
-          <% User.all.each do |user|%>
-          <% if !user.super_admin %>
+          <% if current_user.super_admin %>
           <th>Delete user</th>
-          <% end %>
           <% end %>
       </tr>
     </thead>
@@ -20,7 +18,7 @@
           <td><%= user.first_name %></td>
           <td><%= user.last_name %></td>
           <td><%= user.email%></td>
-          <% if !user.super_admin %>
+          <% if current_user.super_admin %>
           <td><%= link_to 'delete', "/user/#{user.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"}  %></td>
           
           <% end %>

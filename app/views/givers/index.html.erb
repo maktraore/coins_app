@@ -1,7 +1,7 @@
 <div class= "container-fluid">
-<h1 class="middle_text ">Admins </h1>
-  <table class='display' id='admins'>
-    <thead>
+<h1 class="middle_text white">Admins </h1>
+  <table class='display nowrap' id='admins'>
+    <thead class="white">
       <tr>
           <th>First name</th>
           <th>Last name</th>
@@ -15,11 +15,11 @@
        
           <% User.all.each do |user| %>
      <tr>
-          <td><%= user.first_name %></td>
-          <td><%= user.last_name %></td>
-          <td><%= user.email%></td>
+          <td ><%= user.first_name %></td>
+          <td ><%= user.last_name %></td>
+          <td ><%= user.email%></td>
           <% if current_user.super_admin %>
-          <td><%= link_to 'delete', "/user/#{user.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"}  %></td>
+          <td ><%= link_to 'delete', "/user/#{user.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"}  %></td>
           
           <% end %>
      </tr> 
@@ -29,9 +29,9 @@
   
 </table>
 
-<h1>Receivers</h1>
-<table  id='receivers'>
-    <thead>
+<h1 class="white">Receivers</h1>
+<table  id='receivers' >
+    <thead class="white">
       <tr>
           <th>First name</th>
           <th>Last name</th>

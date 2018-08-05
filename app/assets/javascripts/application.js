@@ -22,18 +22,14 @@ $(document).ready(function() {
       dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+      "lengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]],
+    } );
+
+    var table = $('#admins').DataTable({
+      dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
+      "<'row'<'col-sm-12'tr>>" +
+      "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+      "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
     });
-} );
 
-  // $(document).ready(function() {
-  //   $('#admins').dataTable
-  //   sPaginationType: "bootstrap"
-  //   bJQueryUI: true
-
-  // } );
-
-  //  $(document).ready(function() {
-  //   $('#receivers').dataTable();
-  //   sPaginationType: "bootstrap"
-  //   bJQueryUI: true
-  // } );
+    });

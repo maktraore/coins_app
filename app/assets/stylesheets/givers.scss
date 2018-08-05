@@ -2,13 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .middle_text {
-  margin-top: 100px;
+  margin-top: 50px;
   // vertical-align: middle;
 }
-
+body { 
+  font-family: Tahoma,Verdana,Segoe,sans-serif; 
+  background-image: url('bg.jpg');
+}
+.white {color: silver; }
 .far_right {
   float: right;
 }
+#admins_filter  label { color: silver}
+#receivers_filter label { color: silver}
+label input { color: #000}
+label select { color: #000}
 
 .dataTables_wrapper .dataTables_paginate {
   float: right;
@@ -25,7 +33,7 @@
   text-decoration: none !important;
   cursor: pointer;
   *cursor: hand;
-  color: #333333 !important;
+  color: silver !important;
   border: 1px solid transparent;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {

@@ -56,7 +56,7 @@
           <td><%= receiver.race%></td>
           <td><%= receiver.coins%></td>
           <td><%= receiver.location%></td>
-          <td><%= "#{receiver.first_name} #{receiver.last_name}"%></td>
+          <td><%= "#{receiver.giver_first_name} #{receiver.giver_last_name}"%></td>
           <td><%= receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") %></td>
           <td><%= link_to 'delete', "givers/#{receiver.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %></td>
      </tr> 

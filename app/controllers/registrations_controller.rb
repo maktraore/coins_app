@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
- http_basic_authenticate_with name: "admin",  password: "pa$$word"
+ http_basic_authenticate_with name: ADMIN_USERNAME,  password: ADMIN_PASS
 def sign_up_params
   devise_parameter_sanitizer.sanitize(:sign_up)
 end

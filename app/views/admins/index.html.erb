@@ -1,13 +1,15 @@
-<div class= "container-fluid container">
+<div class= "container-fluid container middle_text">
 <h2 class="middle_text ">Admins </h2>
   <table class='display' id='admins'>
     <thead >
       <tr>
-          <th>First name</th>
+          <th></th>
+          <th>first name</th>
           <th>Last name</th>
           <th>Email</th>
           <% if current_user.super_admin %>
-          <th>Delete user</th>
+          <th>Edit User</th>
+          <th>Delete User</th>
           <% end %>
       </tr>
     </thead>
@@ -15,11 +17,13 @@
        
           <% User.all.each do |user| %>
      <tr>
+          <td ></td>
           <td ><%= user.first_name %></td>
           <td ><%= user.last_name %></td>
           <td ><%= user.email%></td>
           <% if current_user.super_admin %>
-          <td ><%= link_to 'delete', "/user/#{user.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"}  %></td>
+          <td><%= link_to "Edit", "/admins/#{user.id}/edit"%>
+          <td ><%= link_to 'delete', "/admins/#{user.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"}  %></td>
           
           <% end %>
      </tr> 
@@ -30,7 +34,9 @@
 </table>
 
 <h2 class="middle_text ">Recipients</h2>
-<table  id='receivers' class="display ">
+<div style="padding-left: -10px; border: 1px solid black;">
+<div class="table-responsive">
+<table class='display table table-striped table-hover dt-responsive nowrap'  id='receivers' >
     <thead >
       <tr>
           <th></th>
@@ -42,7 +48,10 @@
           <th>Location</th>
           <th>Giver's name</th>
           <th>Date</th>
+          <% if current_user.admin || current_user.super_admin %>
+          <th>Edit</th>
           <th>Delete</th>
+          <% end %>
       </tr>
     </thead>
     <tbody>
@@ -58,12 +67,18 @@
           <td><%= receiver.location%></td>
           <td><%= "#{receiver.giver_first_name} #{receiver.giver_last_name}"%></td>
           <td><%= receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") %></td>
-          <td><%= link_to 'delete', "givers/#{receiver.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %></td>
+          <% if current_user || current_user.super_admin %>
+          <td><%= link_to "Edit", "/receivers/#{receiver.id}/edit"%>
+
+          <td><%= link_to 'delete', "receivers/#{receiver.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %></td>
+          <% end %>
      </tr> 
           <% end %>
 
     </tbody>
   
 </table>
+</div>
+</div>
 </div>
 

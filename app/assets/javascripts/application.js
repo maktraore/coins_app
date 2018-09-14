@@ -23,8 +23,7 @@ $(document).ready(function() {
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-5'i><'col-sm-7'p>>",
       "lengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]],
-        "order": [[ 1, 'asc' ]],
-        
+        "order": [[ 8, 'desc' ]]
     } );
  
     t.on( 'order.dt search.dt', function () {
@@ -39,6 +38,12 @@ $(document).ready(function() {
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-5'i><'col-sm-7'p>>",
       "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+      "order": [[ 1, 'asc' ]]
     });
+     t.on( 'order.dt search.dt', function () {
+        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+    } ).draw();
 
     });

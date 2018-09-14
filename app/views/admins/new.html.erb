@@ -1,0 +1,85 @@
+<div class="container middle_text ">
+<% if current_user && current_user.super_admin %>
+  <div class="row">
+      <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h2 class="white"> Create an Admin Account</h2>
+              <div class="well">
+                  <%= form_for(resource, as: resource_name, url: "/admins") do |f| %>
+                      <% if  resource.errors.any? %>
+
+                          <div class="alert alert-danger">
+                          <%= devise_error_messages! %>
+                          </div>
+
+                      <% end %>
+
+                  <div class="form-group">
+                      <%= f.label :first_name %><br />
+                      <div class="col-xs-12">
+                      <%= f.text_field :first_name, name: :first_name,  autofocus: true, required:true %>
+                      </div>
+                  </div>
+
+                    <div class="form-group">
+                      <%= f.label :last_name %><br />
+                      <div class="col-xs-12">
+                      <%= f.text_field :last_name, name: :last_name, autofocus: true, required:true%>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <%= f.label :email %><br />
+                        <div class="col-xs-12">
+                        <%= f.email_field :email, name: :email, autofocus: true %>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                      <%= f.label :password %>
+                       <div class="col-xs-12">
+                          <% if @minimum_password_length %>
+                          <em>(<%= @minimum_password_length %> characters minimum)</em>
+                          <% end %>
+                          <%= f.password_field :password, name: :password, autocomplete: "off" %>
+                       </div>
+                    </div>
+
+                    <div class="form-group">
+                          <%= f.label :password_confirmation %><br />
+                          <div class="col-xs-12">
+                          <%= f.password_field :password_confirmation, name: :password_confirmation, autocomplete: "off" %>
+                          </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Admin:</label>
+                              <select name="admin" required>
+                                <option > False </option>
+                                  <option >True </option>            
+                              </select>
+                    </div>
+
+                   <div class="form-group">
+                          <label>Super Admin:</label>
+                                <select name="super_admin" required>
+                                  <option > False</option>
+                                    <option >True </option>          
+                                </select>
+                   </div>
+
+                    <br />
+
+                    <div class="form-group">
+                      <button class="btn btn-info">Sign Up</button>
+                    </div>
+
+               <% end %>
+            </div>
+         </div>
+      <div class="col-md-6"></div>
+    </div>
+    <% else %>
+    Stop Hacker!!!!
+    <% end %>
+</div>

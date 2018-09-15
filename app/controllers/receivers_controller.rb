@@ -1,5 +1,14 @@
 class ReceiversController < ApplicationController
 
+  def index
+      @receivers =  Receiver.all
+
+      respond_to do |format|
+        format.html
+        format.xlsx
+      end
+  end
+
   def new
   end
 

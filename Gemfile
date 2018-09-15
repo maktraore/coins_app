@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx', '= 2.0.1'
+gem 'axlsx_rails'
 gem 'rails-assets-jquery', source: 'https://rails-assets.org/'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'devise', '~> 4.2'

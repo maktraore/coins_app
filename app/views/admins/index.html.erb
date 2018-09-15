@@ -18,9 +18,9 @@
           <% User.all.each do |user| %>
      <tr>
           <td ></td>
-          <td ><%= user.first_name %></td>
-          <td ><%= user.last_name %></td>
-          <td ><%= user.email%></td>
+          <td ><%= user.first_name.capitalize %></td>
+          <td ><%= user.last_name.capitalize %></td>
+          <td ><%= user.email.downcase%></td>
           <% if current_user.super_admin %>
           <td><%= link_to "Edit", "/admins/#{user.id}/edit"%>
           <td ><%= link_to 'delete', "/admins/#{user.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"}  %></td>
@@ -43,6 +43,7 @@
           <th>First name</th>
           <th>Last name</th>
           <th>Email</th>
+          <th>Department</th>
           <th>Cause</th>
           <th>Coin's number</th>
           <th>Location</th>
@@ -59,13 +60,14 @@
           <% @receivers.each do |receiver| %>
      <tr>
           <td ></td>
-          <td><%= receiver.first_name %></td>
-          <td><%= receiver.last_name %></td>
-          <td><%= receiver.email%></td>
+          <td><%= receiver.first_name.capitalize %></td>
+          <td><%= receiver.last_name.capitalize %></td>
+          <td><%= receiver.email.downcase %></td>
+          <td><%= receiver.department.upcase %></td>
           <td><%= receiver.race%></td>
           <td><%= receiver.coins%></td>
           <td><%= receiver.location%></td>
-          <td><%= "#{receiver.giver_first_name} #{receiver.giver_last_name}"%></td>
+          <td><%= "#{receiver.giver_first_name.capitalize} #{receiver.giver_last_name.capitalize}"%></td>
           <td><%= receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") %></td>
           <% if current_user || current_user.super_admin %>
           <td><%= link_to "Edit", "/receivers/#{receiver.id}/edit"%>

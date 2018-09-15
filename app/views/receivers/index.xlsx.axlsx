@@ -4,9 +4,40 @@ wb = xlsx_package.workbook
 wb.add_worksheet(name: "Recipients") do |sheet|
   # this is the head row of your spreadsheet
   sheet.add_row %w(first_name last_name email department coins_number cause location date)
-  
   # each user is a row on your spreadsheet
   @receivers.each do |receiver|
-    sheet.add_row [receiver.first_name, receiver.last_name, receiver.email, receiver.department, receiver.coins, receiver.race, receiver.location, receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") ]
+    sheet.add_row [receiver.first_name.capitalize, receiver.last_name.capitalize, receiver.email.downcase, receiver.department.upcase, receiver.coins, receiver.race, receiver.location.capitalize, receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") ]
+    end
+
   end
+    wb.add_worksheet(name: "RecipientsManhattan") do |sheet|
+    # this is the head row of your spreadsheet
+    sheet.add_row %w(first_name last_name email department coins_number cause location date)
+    @receivers_manhattan.each do |receiver|
+    sheet.add_row [receiver.first_name.capitalize, receiver.last_name.capitalize, receiver.email.downcase, receiver.department.upcase, receiver.coins, receiver.race, receiver.location.capitalize, receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p")]
+    end
+end
+
+wb.add_worksheet(name: "RecipientsBronx") do |sheet|
+    # this is the head row of your spreadsheet
+    sheet.add_row %w(first_name last_name email department coins_number cause location date)
+    @receivers_manhattan.each do |receiver|
+    sheet.add_row [receiver.first_name.capitalize, receiver.last_name.capitalize, receiver.email.downcase, receiver.department.upcase, receiver.coins, receiver.race, receiver.location.capitalize, receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") ]
+    end
+end
+
+wb.add_worksheet(name: "RecipientsDobbsFerry") do |sheet|
+    # this is the head row of your spreadsheet
+    sheet.add_row %w(first_name last_name email department coins_number cause location date)
+    @receivers_manhattan.each do |receiver|
+    sheet.add_row [receiver.first_name.capitalize, receiver.last_name.capitalize, receiver.email.downcase, receiver.department.upcase, receiver.coins, receiver.race, receiver.location.capitalize, receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") ]
+    end
+end
+
+wb.add_worksheet(name: "RecipientsYorkTown") do |sheet|
+    # this is the head row of your spreadsheet
+    sheet.add_row %w(first_name last_name email department coins_number cause location date)
+    @receivers_manhattan.each do |receiver|
+    sheet.add_row [receiver.first_name.capitalize, receiver.last_name.capitalize, receiver.email.downcase, receiver.department.upcase, receiver.coins, receiver.race, receiver.location.capitalize, receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") ]
+    end
 end

@@ -33,7 +33,7 @@ class AdminsController < ApplicationController
   def destroy
     @user= User.find_by(id: params[:id])
     @user.destroy
-    redirect_to "/"
+    render "index"
   end
   
 end

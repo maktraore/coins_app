@@ -23,7 +23,7 @@ $(document).ready(function() {
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-5'i><'col-sm-7'p>>",
       "lengthMenu": [[10, 20, 30, -1], [10, 20, 30, "All"]],
-        "order": [[ 8, 'desc' ]]
+        "order": [[ 9, 'desc' ]]
     } );
  
     t.on( 'order.dt search.dt', function () {

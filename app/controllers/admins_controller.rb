@@ -22,12 +22,11 @@ class AdminsController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    # p @user.errors.full_messages
-    # Rails.logger.info(@user.errors.inspect)
     @user.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], super_admin: params[:super_admin], admin: params[:admin])
     @user.admin = params[:admin]
     @user.super_admin =params[:super_admin]
     @user.save
+    flash[:success] = "The #{@user.first_name}\'s account has been updated"
     redirect_to "/"
   end
 

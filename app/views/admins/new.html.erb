@@ -51,27 +51,23 @@
                           <%= f.password_field :password_confirmation, name: :password_confirmation, autocomplete: "off" %>
                           </div>
                     </div>
-                    <br />
-                    <div class="form-group">
-                        <label>Admin:</label>
-                              <select name="admin" required>
-                                <option > False </option>
-                                  <option >True </option>            
-                              </select>
-                    </div>
-
-                   <div class="form-group">
-                          <label>Super Admin:</label>
-                                <select name="super_admin" required>
-                                  <option > False</option>
-                                    <option >True </option>          
-                                </select>
-                   </div>
 
                     <br />
+                          <%= f.label  "super admin:" %>
+                          <%= label_tag(:super_admin, "yes") %>
+                          <%= radio_button_tag(:super_admin, "true") %>
+                          <%= label_tag(:super_admin, "no") %>
+                          <%= radio_button_tag(:super_admin, "false") %>
+                          
+                    <br />
+                    <%= f.label  "Admin:" %>
+                          <%= label_tag(:admin, "yes") %>
+                          <%= radio_button_tag(:admin, "true") %>
+                          <%= label_tag(:admin, "no") %>
+                          <%= radio_button_tag(:admin, "false") %>
 
                     <div class="form-group">
-                      <button class="btn btn-info">Sign Up</button>
+                    <%= f.button "Create the account", :class => "btn btn-info" %>
                     </div>
 
                <% end %>

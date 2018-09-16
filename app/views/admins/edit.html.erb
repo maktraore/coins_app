@@ -1,5 +1,5 @@
 <div class="middle_text container">
-  <% if current_user && current_user.admin %>
+  <% if current_user && current_user.super_admin %>
     <div class="row">
       <div class="col-md-3"></div>
         <div class="col-md-6">
@@ -28,22 +28,20 @@
                   </div>  
 
                   <div class="form-group">
-                        <label>Admin:</label>
-                              <select name="admin" required>
-                                <option > <%= @user.admin %> </option>
-                                  <option ><%= !@user.admin %></option>            
-                              </select>
-                 </div>
+                      <label>Admin:</label>
+                      <!-- <div class="col-xs-12"> -->
+                          <input type="radio" name="admin" value="true" <%= "checked" if @user.admin  %>>yes
+                          <input type="radio" name="admin" value="false" <%= "checked" if !@user.admin  %>>no
+                      <!-- </div> -->
+                  </div>
 
-                 <div class="form-group">
-                        <label>Super Admin:</label>
-                              <select name="super_admin" required>
-                                <option > <%= @user.super_admin %> </option>
-                                  <option ><%= !@user.super_admin %></option>          
-                              </select>
-                 </div>
-
-                  <br />
+                  <div class="form-group">
+                      <label>Super Admin:</label>
+                      <!-- <div class="col-xs-12"> -->
+                        <input type="radio" name="super_admin" value="true" <%= "checked" if @user.super_admin  %>>yes
+                        <input type="radio" name="super_admin" value="false" <%= "checked" if !@user.super_admin  %>>no
+                      <!-- </div> -->
+                  </div>
 
                   <button class="btn btn-success">Submit</button>
 

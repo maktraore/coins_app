@@ -37,6 +37,7 @@ class ReceiversController < ApplicationController
   def update
     @receiver = Receiver.find_by(id: params[:id])
     @receiver.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email],race: params[:race], coins: params[:coins], giver_first_name: params[:giver_first_name], giver_last_name: params[:giver_last_name], location: params[:location], department: params[:department])
+    flash[:success] = "The #{@receiver.first_name}\'s account has been updated"
     redirect_to "/"
   end
 

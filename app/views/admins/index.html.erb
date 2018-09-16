@@ -1,86 +1,98 @@
 <div class= "container-fluid container middle_text">
-<h2 class="middle_text ">Admins </h2>
-  <table class='display' id='admins'>
-    <thead >
-      <tr>
-          <th></th>
-          <th>first name</th>
-          <th>Last name</th>
-          <th>Email</th>
-          <% if current_user.super_admin %>
-          <th>Edit User</th>
-          <th>Delete User</th>
-          <% end %>
-      </tr>
-    </thead>
-    <tbody>
-       
-          <% User.all.each do |user| %>
-     <tr>
-          <td ></td>
-          <td ><%= user.first_name.capitalize %></td>
-          <td ><%= user.last_name.capitalize %></td>
-          <td ><%= user.email.downcase%></td>
-          <% if current_user.super_admin %>
-          <td><%= link_to "Edit", "/admins/#{user.id}/edit"%>
-          <td ><%= link_to 'delete', "/admins/#{user.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"}  %></td>
+        <% flash.each do |name, msg| %>
+           <div class ="alert alert-<%= name  %> alert-
+           dismissible"  role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <%= msg %></div>
+        <% end %>
+
+    <h2 class="middle_text ">Admins </h2>
+        <table class='display' id='admins'>
+          <thead >
+              <tr>
+                  <th></th>
+                  <th>first name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                  <% if current_user.super_admin %>
+                  <th>Edit User</th>
+                  <th>Delete User</th>
+                  <% end %>
+              </tr>
+          </thead>
+
+          <tbody>
+
+             <% User.all.each do |user| %>
+             <tr>
+                  <td ></td>
+                  <td ><%= user.first_name.capitalize %></td>
+                  <td ><%= user.last_name.capitalize %></td>
+                  <td ><%= user.email.downcase%></td>
+                  <% if current_user.super_admin %>
+                  <td><%= link_to "Edit", "/admins/#{user.id}/edit"%>
+                  <td ><%= link_to 'delete', "/admins/#{user.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"}  %></td>
+                  
+                  <% end %>
+             </tr> 
+             <% end %>
+
+          </tbody>
+        
+        </table>
+
+    <h2 class="middle_text ">Recipients</h2>
+        <%= link_to "Export recipients as spreadsheet", receivers_path(format: "xlsx") %>
+        <div style="padding-left: -10px; border: 1px solid black;">
+        <div class="table-responsive">
+
+    <table class='display table table-striped table-hover dt-responsive nowrap'  id='receivers' >
+        <thead >
+          <tr>
+              <th></th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Cause</th>
+              <th>Coin's number</th>
+              <th>Location</th>
+              <th>Giver's name</th>
+              <th>Date</th>
+              <% if current_user.admin || current_user.super_admin %>
+              <th>Edit</th>
+              <th>Delete</th>
+              <% end %>
+          </tr>
+        </thead>
+        <tbody>
+           
+           <% @receivers.each do |receiver| %>
+
+           <tr>
+                <td ></td>
+                <td><%= receiver.first_name.capitalize %></td>
+                <td><%= receiver.last_name.capitalize %></td>
+                <td><%= receiver.email.downcase %></td>
+                <td><%= receiver.department.upcase %></td>
+                <td><%= receiver.race%></td>
+                <td><%= receiver.coins%></td>
+                <td><%= receiver.location%></td>
+                <td><%= "#{receiver.giver_first_name.capitalize} #{receiver.giver_last_name.capitalize}"%></td>
+                <td><%= receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") %></td>
+                <% if current_user || current_user.super_admin %>
+                <td><%= link_to "Edit", "/receivers/#{receiver.id}/edit"%>
+
+                <td><%= link_to 'delete', "receivers/#{receiver.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %></td>
+                <% end %>
+           </tr> 
+
+           <% end %>
+
+        </tbody>
           
-          <% end %>
-     </tr> 
-          <% end %>
-
-    </tbody>
-  
-</table>
-<h2 class="middle_text ">Recipients</h2>
-<%= link_to "Export recipients as spreadsheet", receivers_path(format: "xlsx") %>
-<div style="padding-left: -10px; border: 1px solid black;">
-<div class="table-responsive">
-<table class='display table table-striped table-hover dt-responsive nowrap'  id='receivers' >
-    <thead >
-      <tr>
-          <th></th>
-          <th>First name</th>
-          <th>Last name</th>
-          <th>Email</th>
-          <th>Department</th>
-          <th>Cause</th>
-          <th>Coin's number</th>
-          <th>Location</th>
-          <th>Giver's name</th>
-          <th>Date</th>
-          <% if current_user.admin || current_user.super_admin %>
-          <th>Edit</th>
-          <th>Delete</th>
-          <% end %>
-      </tr>
-    </thead>
-    <tbody>
-       
-          <% @receivers.each do |receiver| %>
-     <tr>
-          <td ></td>
-          <td><%= receiver.first_name.capitalize %></td>
-          <td><%= receiver.last_name.capitalize %></td>
-          <td><%= receiver.email.downcase %></td>
-          <td><%= receiver.department.upcase %></td>
-          <td><%= receiver.race%></td>
-          <td><%= receiver.coins%></td>
-          <td><%= receiver.location%></td>
-          <td><%= "#{receiver.giver_first_name.capitalize} #{receiver.giver_last_name.capitalize}"%></td>
-          <td><%= receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") %></td>
-          <% if current_user || current_user.super_admin %>
-          <td><%= link_to "Edit", "/receivers/#{receiver.id}/edit"%>
-
-          <td><%= link_to 'delete', "receivers/#{receiver.id}", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %></td>
-          <% end %>
-     </tr> 
-          <% end %>
-
-    </tbody>
-  
-</table>
+     </table>
+     
 </div>
-</div>
-</div>
+
 

@@ -64,23 +64,33 @@
           </tr>
         </thead>
         <tbody>
-            <% @receivers_locations_count.each_slice(4) do |receiver_slice| %>
-            <div class="well">
-              <% receiver_slice.each do |location, count|  %>
-                 <div class="col-md-3">
-                    <div class="panel panel-default">
-                       <div class="panel-heading">
-                           <strong>Receivers in <br /><%= location %>:  <%= count %></strong>
-                       </div>
-                            <% {"Responsive" => Receiver.where(location: location, race: "Responsive").count, "Accurate" => Receiver.where(location: location, race: "Accurate").count, "Courteous" => Receiver.where(location: location, race: "Courteous").count, "Efficient" => Receiver.where(location: location, race: "Efficient").count }.each do |race, count| %><br />
-                           Number of <%= race %>:  <%= count %><br />
-                           <% end %>
-                 </div>
-            </div>
-             <% end %>
-            </div>
-            <% end %>
-           <% @receivers.each do |receiver| %>
+            <% @receivers_locations_count.each_slice(5) do |receiver_slice| %>
+                <div class="well">
+                  <% receiver_slice.each do |location, count|  %>
+                     <div class="col-md-15 col-xs-3">
+                        <div class="panel panel-default">
+                           <div class="panel-heading">
+                               <strong>Recipients in <br /><%= location %>:  <%= count %></strong>
+                           </div>
+                                <% {"Responsive" => Receiver.where(location: location, race: "Responsive").count, "Accurate" => Receiver.where(location: location, race: "Accurate").count, "Courteous" => Receiver.where(location: location, race: "Courteous").count, "Efficient" => Receiver.where(location: location, race: "Efficient").count }.each do |race, count| %><br />
+                                  Number of <%= race %>:  <%= count %><br />
+                                  <% end %>
+                           </div>
+                          </div>
+                      <% end %>
+                       <div class="col-md-15 col-xs-3">
+                         <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <strong>Recipients in <br /><%= "Total" %>:  <%= Receiver.all.count %></strong>
+                            </div>
+                            <% @receivers_races.each do |race, count| %> <br />
+                              <b>Total <%= race %>: <%= count %></b><br />
+                             <% end %>
+                        </div>
+                      </div>
+           <% end %>
+
+        <% @receivers.each do |receiver| %>
            <tr>
                 <td ></td>
                 <td><%= receiver.first_name.capitalize %></td>

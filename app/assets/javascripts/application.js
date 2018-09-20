@@ -33,15 +33,15 @@ $(document).ready(function() {
     } ).draw();
 
 
-    var t = $('#admins').DataTable({
+    var t1= $('#admins').DataTable({
       dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-5'i><'col-sm-7'p>>",
       "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
       "order": [[ 1, 'asc' ]]
     });
-     t.on( 'order.dt search.dt', function () {
-        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+     t1.on( 'order.dt search.dt', function () {
+        t1.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
             cell.innerHTML = i+1;
         } );
     } ).draw();

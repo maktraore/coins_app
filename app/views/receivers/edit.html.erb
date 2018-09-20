@@ -1,4 +1,5 @@
 <div class="middle_text container ">
+<div class="middle_text container ">
     <% if current_user&& (current_user.super_admin || current_user.admin) %>
         <div class="row">
             <div class="col-md-3"></div>
@@ -11,29 +12,29 @@
 
                           <div class="field">
                             <%= f.label :first_name %><br />
-                            <%= f.text_field :first_name, value: @receiver.first_name, name: :first_name, autofocus: true %>
+                            <%= f.text_field :first_name, required: true, value: @receiver.first_name, name: :first_name, autofocus: true %>
                           </div>
                           <div class="field">
                             <%= f.label :last_name %><br />
-                            <%= f.text_field :last_name, value: @receiver.last_name, name: :last_name, autofocus: true %>
+                            <%= f.text_field :last_name, required: true, value: @receiver.last_name, name: :last_name, autofocus: true %>
                           </div>
                           <div class="field">
                             <%= f.label :email %><br />
-                            <%= f.email_field :email, value: @receiver.email, name: :email, autofocus: true %>
+                            <%= f.email_field :email, required: true, value: @receiver.email, name: :email, autofocus: true %>
                           </div>
                           <div class="field">
                             <%= f.label :coins %><br />
-                            <%= f.text_field :coins, value: @receiver.coins, name: :coins, autofocus: true %>
+                            <%= f.text_field :coins, required: true, value: @receiver.coins, name: :coins, autofocus: true %>
                           </div>
                           <div class="field">
-                            <%= f.label :departement%><br />
-                            <%= f.text_field :department, value: @receiver.department, name: :department, autofocus: true %>
+                            <%= f.label :departement %><br />
+                            <%= f.text_field :department, required: true, value: @receiver.department, name: :department, autofocus: true %>
                           </div>
                           <br />
                           <div class="field">
                                 <label>RACE:</label>
                                     <!-- <div class="col-xs-12"> -->
-                                      <select name="race"  >
+                                      <select name="race"  required >
                                         <option  selected value=<%=@receiver.race  %>><%= @receiver.race %> </option>
                                           <option value="Responsive">Responsive</option>
                                           <option value="Accurate">Accurate</option>
@@ -43,21 +44,22 @@
                                </div>
                           <div class="form-group">
                                 <label>Location:</label>
-                                      <select name="location" >
+                                      <select name="location" required >
                                         <option  selected value=<%= @receiver.location %> > <%= @receiver.location %></option>
                                           <option value="Dobbs Ferry">Dobbs Ferry</option>
                                           <option value="Bronx">Bronx</option>
                                           <option value="Manhattan">Manhattan</option>
-                                          <option value="York Town">York Town</option>              
+                                          <option value="Tarrytown">Tarrytown</option>
+                                          <option value="Yorktown">Yorktown</option>              
                                       </select>
                          </div>
                         <div class="field">
                             <%= f.label :giver_first_name %><br />
-                            <%= f.text_field :giver_first_name, value: @receiver.giver_first_name, name: :giver_first_name, autofocus: true %>
+                            <%= f.text_field :giver_first_name, required: true, value: @receiver.giver_first_name, name: :giver_first_name, autofocus: true %>
                           </div>
                           <div class="field">
                             <%= f.label :giver_last_name %><br />
-                            <%= f.text_field :giver_last_name, value: @receiver.giver_last_name, name: :giver_last_name, autofocus: true %>
+                            <%= f.text_field :giver_last_name, required: true,  value: @receiver.giver_last_name, name: :giver_last_name, autofocus: true %>
                           </div>
                         <br />
                           <button class="btn btn-success">Submit</button>

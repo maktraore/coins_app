@@ -6,6 +6,7 @@ class ReceiversController < ApplicationController
       @receivers_bronx = Receiver.where(location: "Bronx").order(created_at: :desc) 
       @receivers_dobbs_ferry = Receiver.where(location: "Dobbs Ferry").order(created_at: :desc) 
       @receivers_york_town = Receiver.where(location: "York Town").order(created_at: :desc) 
+      @receivers_tarry_town = Receiver.where(location: "Tarry Town").order(created_at: :desc) 
       filename = Time.now.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p")
       respond_to do |format|
         format.html

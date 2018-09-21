@@ -13,7 +13,7 @@ class AdminsController < ApplicationController
     @user= User.find_by(id: params[:id])
     @receivers =  Receiver.all.order(created_at: :desc) 
 
-    @receivers_locations_count = {"Bronx"=> Receiver.where(location: "Bronx").count, "Dobbs Ferry"=>Receiver.where(location: "Dobbs Ferry").count, "Tarrytown"=>Receiver.where(location: "Tarry Town").count, "Yorktown"=>Receiver.where(location: "York Town").count}
+    @receivers_locations_count = {"Manhattan"=> Receiver.where(location: "Manhattan").count, "Dobbs Ferry"=>Receiver.where(location: "Dobbs Ferry").count, "Tarrytown"=>Receiver.where(location: "Tarrytown").count, "Bronx"=> Receiver.where(location: "Bronx").count, "Yorktown"=>Receiver.where(location: "Yorktown").count}
 
     @receivers_races = {"Responsive" => Receiver.where(race:"Responsive").count, "Accurate" => Receiver.where(race:"Accurate").count, "Courteous" => Receiver.where(race:"Courteous").count, "Efficient" => Receiver.where(race:"Efficient").count}
   end

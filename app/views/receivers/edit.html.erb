@@ -26,11 +26,51 @@
                             <%= f.label :coins %><br />
                             <%= f.text_field :coins, required: true, value: @receiver.coins, name: :coins, autofocus: true %>
                           </div>
+
                           <div class="field">
-                            <%= f.label :departement %><br />
-                            <%= f.text_field :department, required: true, value: @receiver.department, name: :department, autofocus: true %>
-                          </div>
-                          <br />
+                            <label>Recipient's Department </label><br />
+                            <input type="text" list="departments" value= "<%= @receiver.department %> " name="department" required><br />
+                            <datalist id="departments" >
+                                 <option  value="Administrative Services">Administrative Services</option>
+                                 <option  value="Admissions &amp; Recruitment">Admissions &amp; Recruitment</option>
+                                 <option  value="Athletics &amp; Recreation">Athletics &amp; Recreation</option>
+                                 <option  value="Career Services">Career Services</option>
+                                 <option  value="Center for Academic Excellence">Center for Academic Excellence</option>
+                                 <option  value="Center for Student Success &amp; Engagement/PACT">Center for Student Success &amp; Engagement/PACT</option>
+                                 <option  value="College Opportunity Program">College Opportunity Program</option>
+                                 <option  value="College Relations (Community, Government, &amp; Public Relations)">College Relations (Community, Government, &amp; Public Relations)</option>
+                                 <option  value="Communication Disorders">Communication Disorders</option>
+                                 <option  value="Compliance Office">Compliance Office</option>
+                                 <option  value="Disability Services Office">Disability Services Office</option>
+                                 <option  value="Facilities">Facilities</option><option  value="Finance Office">Finance Office</option>
+                                 <option  value="Human Resources">Human Resources</option>
+                                 <option  value="Information Technology">Information Technology</option>
+                                 <option  value="Institutional Advancement">Institutional Advancement</option>
+                                 <option  value="Institutional Effectiveness">Institutional Effectiveness</option>
+                                 <option  value="Institutional Research">Institutional Research</option>
+                                 <option  value="Internal Audit">Internal Audit</option>
+                                 <option  value="Legal">Legal Department</option>
+                                 <option  value="Libraries">Libraries</option>
+                                 <option  value="Marketing">Marketing</option>
+                                 <option  value="Office for Teaching Excellence and Engaged Learning">Office for Teaching Excellence and Engaged Learning</option>
+                                 <option  value="Purchasing">Purchasing</option>
+                                 <option  value="President's Office">President's Office</option>
+                                 <option  value="Provost's Office">Provost's Office</option>
+                                 <option  value="Safety Office">Safety Office</option>
+                                 <option  value="School of Business">School of Business</option>
+                                 <option  value="School of Education">School of Education</option>
+                                 <option  value="School of Health and Natural Sciences">School of Health and Natural Sciences</option>
+                                 <option  value="School of Liberal Arts">School of Liberal Arts</option>
+                                 <option  value="School of Social and Behavioral Sciences">School of Social and Behavioral Sciences</option>
+                                 <option  value="Sponsored Programs">Sponsored Programs</option>
+                                 <option  value="Student Counseling Center">Student Counseling Center</option>
+                                 <option  value="Student Services Office">Student Services Office</option>
+                                 <option  value="Student Services Support Center">Student Services Support Center</option>
+                                 <option  value="Student Services-Business Operations">Student Services - Office of Student Accounts</option>
+                                 <option  value="Student Services-Systems Management Operations">Student Services-Systems Management Operations</option>
+                            </datalist>
+                          </div> 
+                              <br />
                           <div class="field">
                                 <label>RACE:</label>
                                     <!-- <div class="col-xs-12"> -->

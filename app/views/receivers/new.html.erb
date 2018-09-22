@@ -59,8 +59,10 @@
           <div class="form-group">
           <label>Recipient's Department:</label>
           <div class="col-xs-12">
-          <input type="text" list="departments" name="department" >
-          <datalist id="departments"  >
+          <!-- <input type="text" list="departments" name="department" > -->
+          <!-- <datalist id="departments"  > -->
+          <select id="departments" name="department" >
+               <option selected >Select department</option>
                <option value="Administrative Services">Administrative Services</option>
                <option value="Admissions &amp; Recruitment">Admissions &amp; Recruitment</option>
                <option value="Athletics &amp; Recreation">Athletics &amp; Recreation</option>
@@ -98,7 +100,8 @@
                <option value="Student Services Support Center">Student Services Support Center</option>
                <option value="Student Services-Business Operations">Student Services - Office of Student Accounts</option>
                <option value="Student Services-Systems Management Operations">Student Services-Systems Management Operations</option>
-          </datalist>
+           </select>
+          <!-- </datalist> -->
         </div>
        </div>   
           

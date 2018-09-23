@@ -1,4 +1,5 @@
-<div class= "container-fluid container middle_text">
+<div class= "container-fluid container">
+    <br />
         <% flash.each do |name, msg| %>
            <div class ="alert alert-<%= name  %> alert-
            dismissible"  role="alert">
@@ -7,8 +8,8 @@
         <% end %>
 
     <% if current_user.super_admin %>
-    <h2 class="middle_text ">Admins </h2>
-        <table class='display' id='admins'>
+    <h2 >Admins </h2>
+        <table class='display table-bordered' id='admins'>
           <thead >
               <tr>
                   <th></th>
@@ -39,12 +40,18 @@
         </table>
         <% end %>
 
-    <h2 class="middle_text ">Recipients</h2>
+    <h2 >Recipients</h2>
+  <!--   <p> 
+    <%= button_to 'delete last ten recipients', "receivers/ten", :class =>"btn btn-danger", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %>
+    </p>
+    <p>
+    <%= button_to 'delete last twenty recipients', "receivers/twenty", :class =>"btn btn-danger",  method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %>
+    </p>  -->
         <%= link_to "Export recipients as spreadsheet", receivers_path(format: "xlsx") %>
         <div style="padding-left: -10px; border: 1px solid black;">
         <div class="table-responsive">
 
-    <table class='display table table-striped table-hover dt-responsive nowrap'  id='receivers' >
+    <table class='display table table-striped table-bordered table-hover dt-responsive nowrap'  id='receivers' >
         <thead >
           <tr>
               <th></th>

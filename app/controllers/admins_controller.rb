@@ -9,6 +9,7 @@ class AdminsController < ApplicationController
   end
 
   def index
+
     @receivers = Receiver.all.order('created_at ASC')
     @user= User.find_by(id: params[:id])
     @receivers =  Receiver.all.order(created_at: :desc) 
@@ -39,6 +40,19 @@ class AdminsController < ApplicationController
     @user= User.find_by(id: params[:id])
     @user.destroy
     render "index"
+  end
+
+
+  def destroy_ten
+    @last_x_receivers = Receiver.all.first(10)
+    @last_x_receivers.each{|r| r.destroy}
+    redirect_to "/"
+  end
+
+  def destroy_twenty
+    @last_x_receivers = Receiver.all.first(20)
+    @last_x_receivers.each{|r| r.destroy}
+    redirect_to "/"
   end
   
 end

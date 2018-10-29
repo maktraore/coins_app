@@ -41,12 +41,12 @@
         <% end %>
 
     <h2 >Recipients</h2>
-  <!--   <p> 
+    <p> 
     <%= button_to 'delete last ten recipients', "receivers/ten", :class =>"btn btn-danger", method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %>
     </p>
     <p>
     <%= button_to 'delete last twenty recipients', "receivers/twenty", :class =>"btn btn-danger",  method: :delete, data: {confirm: "Are you sure? You will not be able to undo it"} %>
-    </p>  -->
+    </p> 
         <%= link_to "Export recipients as spreadsheet", receivers_path(format: "xlsx") %>
         <div style="padding-left: -10px; border: 1px solid black;">
         <div class="table-responsive">

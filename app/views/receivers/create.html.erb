@@ -1,7 +1,9 @@
 <div class="middle_text container" >
   
-<p> Thank you for submission!</p>
-<p>A message was sent to the recipient about how to proceed with the game</p>
+<p> Thank you <%= @receiver.giver_first_name %> for your submission!</p>
+<p>A message was sent to <%= @receiver.first_name %> about how to  proceed with the game.
+Hope that you will be recognized again very soon.  </p>
+<p>Have a wonderful date <%= @receiver.giver_first_name %>!</p>
   
 </div> 
 

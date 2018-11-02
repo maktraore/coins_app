@@ -79,8 +79,8 @@
                            <div class="panel-heading">
                                <strong><%= location.first(5) %>:  <%= count %></strong>
                            </div>
-                                <% {"Responsive" => Receiver.where(location: location, race: "Responsive").count, "Accurate" => Receiver.where(location: location, race: "Accurate").count, "Courteous" => Receiver.where(location: location, race: "Courteous").count, "Efficient" => Receiver.where(location: location, race: "Efficient").count }.each do |race, count| %><br />
-                                  <%= race %>:  <%= count %><br />
+                                <% {"Responsive" => Receiver.where(location: location, race: "Responsive").count, "Accurate" => Receiver.where(location: location, race: "Accurate").count, "Courteous" => Receiver.where(location: location, race: "Courteous").count, "Efficient" => Receiver.where(location: location, race: "Efficient").count }.each do |race, number| %><br />
+                                  <%= race %>:  <%= number %><br />
                                   <% end %>
                            </div>
                           </div>

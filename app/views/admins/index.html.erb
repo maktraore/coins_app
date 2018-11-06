@@ -55,14 +55,13 @@
         <thead >
           <tr>
               <th></th>
-              <th>First name</th>
-              <th>Last name</th>
+              <th>Giver's name</th>
+              <th>Recipient's name</th>
               <th>Email</th>
               <th>Department</th>
               <th>Cause</th>
               <th>Coin's number</th>
               <th>Location</th>
-              <th>Giver's name</th>
               <th>Date</th>
               <% if current_user.admin || current_user.super_admin %>
               <th>Edit</th>
@@ -100,14 +99,15 @@
         <% @receivers.each do |receiver| %>
            <tr>
                 <td ></td>
-                <td><%= receiver.first_name.capitalize %></td>
-                <td><%= receiver.last_name.capitalize %></td>
+                <td><%= "#{receiver.giver_first_name.capitalize} #{receiver.giver_last_name.capitalize}"%></td>
+                <td><%= "#{receiver.first_name.capitalize} #{receiver.last_name.capitalize}"%></td>
+               <!--  <td><%= receiver.first_name.capitalize %></td>
+                <td><%= receiver.last_name.capitalize %></td> -->
                 <td><%= receiver.email.downcase %></td>
                 <td><%= receiver.department %></td>
                 <td><%= receiver.race%></td>
                 <td><%= receiver.coins%></td>
                 <td><%= receiver.location%></td>
-                <td><%= "#{receiver.giver_first_name.capitalize} #{receiver.giver_last_name.capitalize}"%></td>
                 <td><%= receiver.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%b %e %Y, %l:%M %p") %></td>
                 <% if current_user.admin || current_user.super_admin %>
                 <td><%= link_to "Edit", "/receivers/#{receiver.id}/edit"%>

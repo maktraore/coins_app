@@ -10,13 +10,22 @@
                         <%= form_for(resource, as: @receiver, url: "/receivers/#{@receiver.id}", html: { method: :patch }) do |f| %>
 
                           <div class="field">
-                            <%= f.label :first_name %><br />
+                            <%= f.label :recipient_first_name %><br />
                             <%= f.text_field :first_name, required: true, value: @receiver.first_name, name: :first_name, autofocus: true %>
                           </div>
                           <div class="field">
-                            <%= f.label :last_name %><br />
+                            <%= f.label :recipient_last_name %><br />
                             <%= f.text_field :last_name, required: true, value: @receiver.last_name, name: :last_name, autofocus: true %>
                           </div>
+                        
+                           <div class="field">
+                            <%= f.label :giver_first_name %><br />
+                            <%= f.text_field :giver_first_name, required: true, value: @receiver.giver_first_name, name: :giver_first_name, autofocus: true %>
+                          </div>
+                          <div class="field">
+                            <%= f.label :giver_last_name %><br />
+                            <%= f.text_field :giver_last_name, required: true,  value: @receiver.giver_last_name, name: :giver_last_name, autofocus: true %>
+                          </div>  
                           <div class="field">
                             <%= f.label :email %><br />
                             <%= f.email_field :email, required: true, value: @receiver.email, name: :email, autofocus: true %>
@@ -84,6 +93,7 @@
                                           <option value="Efficient">Efficient</option>              
                                       </select>
                                </div>
+                               <br />
                           <div class="form-group">
                                 <label>Location:</label>
                                       <select name="location" required >
@@ -95,14 +105,7 @@
                                           <option value="Yorktown">Yorktown</option>              
                                       </select>
                          </div>
-                        <div class="field">
-                            <%= f.label :giver_first_name %><br />
-                            <%= f.text_field :giver_first_name, required: true, value: @receiver.giver_first_name, name: :giver_first_name, autofocus: true %>
-                          </div>
-                          <div class="field">
-                            <%= f.label :giver_last_name %><br />
-                            <%= f.text_field :giver_last_name, required: true,  value: @receiver.giver_last_name, name: :giver_last_name, autofocus: true %>
-                          </div>
+                       
                         <br />
                           <button class="btn btn-info">Submit</button>
                         <% end %>

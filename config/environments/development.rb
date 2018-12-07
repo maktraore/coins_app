@@ -84,9 +84,9 @@ Rails.application.configure do
    :port                 => 587,
    :enable_starttls_auto => true,
    :user_name      => ENV['OUTLOOK_USERNAME'],
-   :password       => ENV['OUTLOOK_PASSWORD'],
+   # :password       => ENV['OUTLOOK_PASSWORD'],
    :domain               => 'mercy.edu',
-   :authentication       => 'login'
+   :authentication       => 'plain'
 
    }
 
